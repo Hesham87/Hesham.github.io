@@ -2,12 +2,12 @@
 # uncomment the urls if you wish to display them, and add your own URL
 
 # jazznotes.io
-- project: jazznotes.io
-  role: Founder & Primary Developer
-  duration: 2012 &mdash; Present
+- project: Road Safety simulation
+  role: a member of a team of 5
+  duration: September 2021 &mdash; January 2022
   # url: "#"
-  description: Jazz Notes is an open source node/ember app that helps you keep track of your music compositions and new ideas.
-
+  description: I participated in a collaborative project with four peers, aiming to elucidate the significance of V2X communication in enhancing road safety using the Simcenter Prescan simulator. Our approach involved the development of various simulated environments, including Crossroad Intersections, Lane Keep Assist, Road Works, Vehicle-Vehicle CACC, and Vehicle-Pedestrian CACC. My primary responsibility was the Crossroad Intersection scenario. This endeavor significantly enriched my understanding of Matlab and V2V communication technologies. The core objective of my scenario centered around the anticipation of potential collisions. To address this, I innovated upon the existing Vima Algorithm[1], optimizing it to more effectively determine the precedence of vehicle passage, thereby mitigating collision risks.
+  
 # Springfield Community Outreach Group
 - project: Springfield Community Outreach Group
   role: Co-Founder & Organizer
