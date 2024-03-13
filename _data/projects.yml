@@ -3,14 +3,14 @@
 
 # jazznotes.io
 - project: Road Safety simulation
-  role: a member of a team of 5
+  role: A member of a team of 5
   duration: September 2021 &mdash; January 2022
   # url: "#"
-  description: I participated in a collaborative project with four peers, aiming to elucidate the significance of V2X communication in enhancing road safety using the Simcenter Prescan simulator. Our approach involved the development of various simulated environments, including Crossroad Intersections, Lane Keep Assist, Road Works, Vehicle-Vehicle CACC, and Vehicle-Pedestrian CACC. My primary responsibility was the Crossroad Intersection scenario. This endeavor significantly enriched my understanding of Matlab and V2V communication technologies. The core objective of my scenario centered around the anticipation of potential collisions. To address this, I innovated upon the existing Vima Algorithm[1], optimizing it to more effectively determine the precedence of vehicle passage, thereby mitigating collision risks.
+  description: I participated in a collaborative project with four peers, aiming to elucidate the significance of V2X communication in enhancing self-driving car road safety using the Simcenter Prescan simulator. Our approach involved the development of various simulated environments, including Crossroad Intersections, Lane Keep Assist, Road Works, Vehicle-Vehicle CACC, and Vehicle-Pedestrian CACC. My primary responsibility was the Crossroad Intersection scenario. This endeavor significantly enriched my understanding of Matlab and V2V communication technologies. The core objective of my scenario centered around the anticipation of potential collisions. To address this, I innovated upon the existing Vima Algorithm[1], optimizing it to more effectively determine the precedence of vehicle passage, thereby mitigating collision risks.
   
 # Springfield Community Outreach Group
-- project: Springfield Community Outreach Group
-  role: Co-Founder & Organizer
-  duration: 2007 &mdash; Present
+- project: Cooperative Adaptive Cruise Control (CACC)
+  role: A member of a team of 5
+  duration: January 2022 &mdash; July 2022
   # url: "#"
-  description: SCOG is a local monthly meetup in Springfield where we share opportunities to volunteer in the community and organize support for families and neighborhoods in need of assistance that the community can provide.
+  description: For our project, we implemented the Vehicle-Vehicle CACC scenario mentioned in the Road Safety Simulation project using two Raspberry Pis, two GPS modules, two transceivers, two mobile phones, and two IMU modules. These elements were used to calculate distances with the help of GPS and to determine speed and acceleration using the IMUs. Following this, we utilized the transceivers for communication between the two vehicles to send data to an algorithm. This algorithm was responsible for analyzing the risk of collision and then displaying warnings on the mobile phones. It is worth mentioning that while this system is better suited for self-driving cars, we were limited by the technologies that were both available and economical.
