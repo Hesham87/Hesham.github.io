@@ -147,7 +147,7 @@
           <div class="image-container">
             <div class="image-with-title">
               <p class="image-title">fig1:Improved VAIMA</p>
-              <img src="images/Improved_VAIMA.png" alt="First Image" style="width:900px;">
+              <img src="images/Improved_VAIMA.png" alt="First Image" style="width:700px;">
               <p class="resume-item-copy">As shown in Fig 1 I have removed the Collision Resolution (CR) message, which essentially duplicates the function of the AskPermission message. Specifically, when one vehicle requests permission from another, it implicitly indicates collision detection. This reduces message complixity.</p>
               <p class="resume-item-copy">To further reduce message complexity, the vehicle's role (e.g., whether it is a road leader) can be incorporated into the Basic Safety Message (BSM), thereby decreasing computational complexity. Furthermore, eliminating the acknowledgment message could streamline communication. Instead of awaiting acknowledgments, we can maintain a list of vehicles in an array. This array would be used to systematically send AskPermission messages in response to each received BSM, effectively eliminating the need for a busy wait for acknowledgment. </p>
               <p class="resume-item-copy">Additionally, the timing of the handover (HDOV) message should be adjusted. Sending HDOV after a vehicle crosses, rather than before, will help prevent potential conflicts with other vehicles. This adjustment ensures smoother operation within the vehicular network by reducing unnecessary communication and computational overhead, thus enhancing overall system efficiency."<\p>       
