@@ -198,7 +198,7 @@
           {% if project.project == "Cooperative Adaptive Cruise Control (CACC)" %}
             <style>
                 /* Style the container for each image and its title */
-                .image-container .image-with-title {
+                .image-container1 .image-with-title {
                   display: inline-block; /* Align items side by side */
                   margin-right: 20px; /* Space between each image and its title */
                 }
@@ -211,19 +211,19 @@
                 }
               
                 /* Adjustments to the last image container to avoid extra margin */
-                .image-container .image-with-title:last-child {
+                .image-container1 .image-with-title:last-child {
                   margin-right: 0;
                 }
             </style>
-            <div class="image-container">
-              <p class="image-title1">Figure 5: First Rpi</p>
-              <img src="images/Rpi1.jpg" alt="Clickable Image 5" class="clickable-image" id="enlargeImage" style="width:200px;" />
-              
-            </div>
-            <div class="image-container">
-              <p class="image-title1">Figure 6: Second Rpi</p>
-              <img src="images/Rpi2.jpg" alt="Clickable Image 6" class="clickable-image" id="enlargeImage"  style="width:200px;"/>
-              
+            <div class="image-container1">
+              <div class="image-with-title">
+                <p class="image-title1">Figure 5: First Rpi</p>
+                <img src="images/Rpi1.jpg" alt="Clickable Image 5" class="clickable-image" id="enlargeImage" style="width:200px;" />
+              </div>
+              <div class="image-with-title">
+                <p class="image-title1">Figure 6: Second Rpi</p>
+                <img src="images/Rpi2.jpg" alt="Clickable Image 6" class="clickable-image" id="enlargeImage"  style="width:200px;"/>
+              </div>
             </div>
           {% endif %}
 
