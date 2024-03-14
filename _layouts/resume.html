@@ -196,12 +196,31 @@
           {% endif %}
 
           {% if project.project == "Cooperative Adaptive Cruise Control (CACC)" %}
-            <div class="image-with-title">
+            <style>
+                /* Style the container for each image and its title */
+                .image-container .image-with-title {
+                  display: inline-block; /* Align items side by side */
+                  margin-right: 20px; /* Space between each image and its title */
+                }
+                
+                /* Style for the title */
+                .image-title {
+                  color: blue;
+                  text-align: center; /* Center the title above the image */
+                  margin-bottom: 5px; /* Space between the title and the image */
+                }
+              
+                /* Adjustments to the last image container to avoid extra margin */
+                .image-container .image-with-title:last-child {
+                  margin-right: 0;
+                }
+            </style>
+            <div class="image-container">
               <p class="image-title">Figure 5: First Rpi</p>
               <img src="images/Rpi1.jpg" alt="Clickable Image 5" class="clickable-image" id="enlargeImage" style="width:350px;" />
               
             </div>
-            <div class="image-with-title">
+            <div class="image-container">
               <p class="image-title">Figure 6: Second Rpi</p>
               <img src="images/Rpi2.jpg" alt="Clickable Image 6" class="clickable-image" id="enlargeImage"  style="width:350px;"/>
               
