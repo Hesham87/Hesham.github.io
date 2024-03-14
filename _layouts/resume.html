@@ -179,9 +179,14 @@
           </div>
 
           <script>
-              // JavaScript to toggle the image size on click
-              document.getElementById('enlargeImage').addEventListener('click', function() {
-                  this.classList.toggle('enlarged');
+              // Select all images with the class 'clickable-image'
+              const images = document.querySelectorAll('.clickable-image');
+          
+              // Add a click event listener to each image
+              images.forEach(function(image) {
+                  image.addEventListener('click', function() {
+                      this.classList.toggle('enlarged');
+                  });
               });
           </script>
           
