@@ -103,14 +103,51 @@
         <header class="section-header">
           <h2>Projects</h2>
         </header>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <style>
+        /* Style the container for each image and its title */
+        .image-container .image-with-title {
+          display: inline-block; /* Align items side by side */
+          margin-right: 20px; /* Space between each image and its title */
+        }
+        
+        /* Style for the title */
+        .image-title {
+          color: blue;
+          text-align: center; /* Center the title above the image */
+          margin-bottom: 5px; /* Space between the title and the image */
+        }
+      
+        /* Adjustments to the last image container to avoid extra margin */
+        .image-container .image-with-title:last-child {
+          margin-right: 0;
+        }
+        </style>
+
+        
         {% for project in site.data.projects %}
         <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
           <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />
           <h3 class="resume-item-title" itemprop="name">{% if project.url %}<a href="{{ project.url }}" itemprop="url">{{ project.project }}</a>{% else %}{{ project.project }}{% endif %}</h3>
           <h4 class="resume-item-details" itemprop="description">{{ project.role }}  &bull; {{ project.duration }}</h4>
           <p class="resume-item-copy">{{ project.description }}</p>
-          {% if project.url %}<img src="images/avatar.jpg" alt="my photo" class="avatar no-print" itemprop="image">{% endif %}
+          {% if project.url %}
+          
+          <div class="image-container">
+            <div class="image-with-title">
+              <p class="image-title">Title 1</p>
+              <img src="images/avatar.jpg" alt="First Image" style="width:100px;">
+            </div>
+            <div class="image-with-title">
+              <p class="image-title">Title 2</p>
+              <img src="images/avatar.jpg" alt="Second Image" style="width:100px;">
+            </div>
+          </div>
+          
+          {% endif %}
         </div>
         {% endfor %}
 
