@@ -108,23 +108,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <style>
-        /* Style the container for each image and its title */
-        .image-container .image-with-title {
-          display: inline-block; /* Align items side by side */
-          margin-right: 20px; /* Space between each image and its title */
-        }
+          /* Style the container for each image and its title */
+          .image-container .image-with-title {
+            display: inline-block; /* Align items side by side */
+            margin-right: 20px; /* Space between each image and its title */
+          }
         
         /* Style for the title */
-        .image-title {
-          color: blue;
-          text-align: center; /* Center the title above the image */
-          margin-bottom: 5px; /* Space between the title and the image */
-        }
-      
-        /* Adjustments to the last image container to avoid extra margin */
-        .image-container .image-with-title:last-child {
-          margin-right: 0;
-        }
+          .image-title {
+            color: blue;
+            text-align: center; /* Center the title above the image */
+            margin-bottom: 5px; /* Space between the title and the image */
+          }
+        
+          /* Adjustments to the last image container to avoid extra margin */
+          .image-container .image-with-title:last-child {
+            margin-right: 0;
+          }
+
+           /* Style for the video title */
+          .video-title {
+              color: blue;
+              text-align: center; /* Centering the title */
+              font-size: 24px; /* Example font size */
+              margin-bottom: 10px; /* Space between the title and the video */
+          }
         </style>
 
         
@@ -145,7 +153,16 @@
               <p class="image-title">Title 2</p>
               <img src="images/avatar.jpg" alt="Second Image" style="width:300px;">
             </div>
+            <div>
+              <p class="video-title">My Video Title</p>
+              <video controls width="640">
+                  <source src="path_to_your_video.mkv" type="video/x-matroska">
+                  Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
+
+          
           
           {% endif %}
         </div>
