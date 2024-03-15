@@ -15,7 +15,45 @@
     margin: 0;
   }
 }
+.image-container .image-with-title {
+  display: inline-block; /* Align items side by side */
+  margin-right: 20px; /* Space between each image and its title */
+}
 
+/* Style for the title */
+.image-title {
+  color: blue;
+  text-align: center; /* Center the title above the image */
+  margin-bottom: 5px; /* Space between the title and the image */
+}
+
+/* Adjustments to the last image container to avoid extra margin */
+.image-container .image-with-title:last-child {
+  margin-right: 0;
+}
+
+/* Initial style for the image */
+.clickable-image {
+    transition: transform 0.2s ease; /* Smooth transition for the transformation */
+    cursor: pointer; /* Change cursor on hover to indicate the image can be clicked */
+    width: 700px; /* Initial width, adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Enlarged style for the image */
+.enlarged {
+    transform: scale(2); /* Double the size of the image */
+    /* Adjust scale value as needed for the desired enlargement */
+}
+
+
+ /* Style for the video title */
+.video-title {
+    color: blue;
+    text-align: center; /* Centering the title */
+    font-size: 24px; /* Example font size */
+    margin-bottom: 10px; /* Space between the title and the video */
+}
 // page header styles
 
 .page-header { padding: 1.5rem 0;
