@@ -1,7 +1,3 @@
-// Resume styles
-// ---------------------------------------/
-
-// util
 
 .section-header {
     @include section_border;
@@ -15,8 +11,6 @@
       margin: 0;
     }
   }
-  
-  // page header styles
   
   .page-header { padding: 1.5rem 0;
   
@@ -130,8 +124,6 @@
     &.not-looking { width: 400px; }
   }
   
-  // resume content styles
-  
   .content-section {
     margin: 0 0 3rem;
   
@@ -173,8 +165,6 @@
   
     .resume-item-copy { margin: .75rem 0 0; }
   }
-  
-  // footer styles
   
   .page-footer {
     border-top: 4px solid #c7c7c7;
