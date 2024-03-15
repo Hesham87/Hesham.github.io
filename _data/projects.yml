@@ -5,7 +5,7 @@
 - project: Road Safety simulation   # if you change the name you will have to change the name in resume.html projject section.
   role: A member of a team of 5
   duration: September 2021 &mdash; January 2022
-  url: "Road_safety.html"
+  url: "_layouts/Road_safety.html"
   description: I participated in a collaborative project with four peers, aiming to elucidate the significance of V2X communication in enhancing the road safety of self-driving cars using the Simcenter Prescan simulator. Our approach involved the development of various simulated environments, including Crossroad Intersections, Lane Keep Assist, Road Works, Vehicle-Vehicle CACC, and Vehicle-Pedestrian CACC. My primary responsibility was the Crossroad Intersection scenario. This endeavor significantly enriched my understanding of Matlab and V2V communication technologies. The core objective of my scenario centered around the anticipation of potential collisions. To address this, I innovated upon the existing VAIMA Algorithm[1], optimizing it for a more efficient message and computational complexity.
   
 # Springfield Community Outreach Group
