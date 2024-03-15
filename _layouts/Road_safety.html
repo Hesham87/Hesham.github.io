@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
+
   {% include head.html %}
 
-  <body class="theme-default">
-    <div class="wrapper" itemscope itemtype="http://schema.org/Person"></div>
-      <header class="section-header">
-        <link rel="stylesheet" href="/_sass/_base.scss">
-        <link rel="stylesheet" href="/_sass/_layout.scss">
-        <link rel="stylesheet" href="/_sass/_mixins.scss">
-        <link rel="stylesheet" href="/_sass/_normalize.scss">
-        <link rel="stylesheet" href="/_sass/_resume.scss">
-        <link rel="stylesheet" href="/_sass/_variables.scss">
+  <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %}">
+
+    <div class="wrapper" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="telephone" content="{{ site.resume_contact_telephone }}"/>
+      <meta itemprop="address" content="{{ site.resume_contact_address }}"/>
+
+      <header class="page-header">
+
         <!-- You can turn off the avatar in _config.yml by setting to false -->
         {% if site.resume_avatar == 'true' %}
         <img src="images/avatar.jpg" alt="my photo" class="avatar no-print" itemprop="image">
@@ -45,46 +45,327 @@
         <a class="contact-button not-looking no-print">I'm not looking for work right now.</a>
         {% else %}
         {% endif %}
+
       </header>
-      <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
-        <section class="content-section">
-          <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />
-          <h3 class="resume-item-title" itemprop="name">Road Safety</h3>
+
+      {% if site.resume_section_experience %}
+      <!-- begin Experience -->
+      <section class="content-section">
+
+        <header class="section-header">
+          <h2>Experience</h2>
+        </header>
+
+        {% for job in site.data.experience %}
+        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
+          <h3 class="resume-item-title" itemprop="name">{{ job.company }}</h3>
+          <h4 class="resume-item-details" itemprop="description">{{ job.position }} &bull; {{ job.duration }}</h4>
+          <p class="resume-item-copy">{{ job.summary }}</p>
+        </div><!-- end of resume-item -->
+        {% endfor %}
+
+      </section>
+      <!-- end Experience -->
+      {% endif %}
+
+
+      {% if site.resume_section_education %}
+      <!-- begin Education -->
+      <section class="content-section">
+        <header class="section-header">
+          <h2>Education</h2>
+        </header>
+
+        {% for education in site.data.education %}
+        <div class="resume-item" itemscope itemprop="alumniOf" itemtype="http://schema.org/CollegeOrUniversity">
+          <h3 class="resume-item-title" itemprop="name">{{ education.uni }}</h3>
+          <h4 class="resume-item-details group" itemprop="description">{{ education.degree }} &bull; {{ education.year }}</h4>
+          <h5 class="resume-item-details award-title" itemprop="description">{{ education.award }}</h5>
+          <p class="resume-item-copy" itemprop="description">
+            <ul class="resume-item-list">
+              {% for award in education.awards %}
+              <li>{{ award.award }}</li>
+              {% endfor %}
+            </ul>
+
+
+          <p class="resume-item-copy">{{ education.summary }}</p>
+        </div>
+        {% endfor %}
+      </section>
+      <!-- end Education -->
+      {% endif %}
+
+
+      {% if site.resume_section_projects %}
+      <!-- begin Projects -->
+      <section class="content-section">
+        <header class="section-header">
+          <h2>Projects</h2>
+        </header>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+          /* Style the container for each image and its title */
+          .image-container .image-with-title {
+            display: inline-block; /* Align items side by side */
+            margin-right: 20px; /* Space between each image and its title */
+          }
+        
+        /* Style for the title */
+          .image-title {
+            color: blue;
+            text-align: center; /* Center the title above the image */
+            margin-bottom: 5px; /* Space between the title and the image */
+          }
+        
+          /* Adjustments to the last image container to avoid extra margin */
+          .image-container .image-with-title:last-child {
+            margin-right: 0;
+          }
+
+          /* Initial style for the image */
+          .clickable-image {
+              transition: transform 0.2s ease; /* Smooth transition for the transformation */
+              cursor: pointer; /* Change cursor on hover to indicate the image can be clicked */
+              width: 700px; /* Initial width, adjust as needed */
+              height: auto; /* Maintain aspect ratio */
+          }
+  
+          /* Enlarged style for the image */
+          .enlarged {
+              transform: scale(2); /* Double the size of the image */
+              /* Adjust scale value as needed for the desired enlargement */
+          }
+
           
-          <div class="image-container">
-            <div class="image-with-title">
-              <p class="image-title">Figure 1: Improved VAIMA</p>
-              <img src="images/Improved_VAIMA.png" alt="Clickable Image 1" class="clickable-image" id="enlargeImage" />
-              <p class="resume-item-copy">As shown in Fig 1 I have removed the Collision Resolution (CR) message, which essentially duplicates the function of the AskPermission message. Specifically, when one vehicle requests permission from another, it implicitly indicates collision detection. This reduces message complixity.</p>
-              <p class="resume-item-copy">To further reduce message complexity, the vehicle's role (e.g., whether it is a road leader) can be incorporated into the Basic Safety Message (BSM), thereby decreasing computational complexity. Furthermore, eliminating the acknowledgment message could streamline communication. Instead of awaiting acknowledgments, we can maintain a list of vehicles in an array. This array would be used to systematically send AskPermission messages in response to each received BSM, effectively eliminating the need for a busy wait for acknowledgment. </p>
-              <p class="resume-item-copy">Additionally, the timing of the handover (HDOV) message should be adjusted. Sending HDOV after a vehicle crosses, rather than before, will help prevent potential conflicts with other vehicles. This adjustment ensures smoother operation within the vehicular network by reducing unnecessary communication and computational overhead, thus enhancing overall system efficiency."</p>       
+           /* Style for the video title */
+          .video-title {
+              color: blue;
+              text-align: center; /* Centering the title */
+              font-size: 24px; /* Example font size */
+              margin-bottom: 10px; /* Space between the title and the video */
+          }
+          
+        </style>
+
+        
+        {% for project in site.data.projects %}
+        <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
+          <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />
+          <h3 class="resume-item-title" itemprop="name">{% if project.url %}<a href="{{ project.url }}" itemprop="url">{{ project.project }}</a>{% else %}{{ project.project }}{% endif %}</h3>
+          <h4 class="resume-item-details" itemprop="description">{{ project.role }}  &bull; {{ project.duration }}</h4>
+          <p class="resume-item-copy">{{ project.description }}</p>
+          {% if project.project == "Road Safety simulation" %}
+          
+            <div class="image-container">
+              <div class="image-with-title">
+                <p class="image-title">Figure 1: Improved VAIMA</p>
+                <img src="images/Improved_VAIMA.png" alt="Clickable Image 1" class="clickable-image" id="enlargeImage" />
+                <p class="resume-item-copy">As shown in Fig 1 I have removed the Collision Resolution (CR) message, which essentially duplicates the function of the AskPermission message. Specifically, when one vehicle requests permission from another, it implicitly indicates collision detection. This reduces message complixity.</p>
+                <p class="resume-item-copy">To further reduce message complexity, the vehicle's role (e.g., whether it is a road leader) can be incorporated into the Basic Safety Message (BSM), thereby decreasing computational complexity. Furthermore, eliminating the acknowledgment message could streamline communication. Instead of awaiting acknowledgments, we can maintain a list of vehicles in an array. This array would be used to systematically send AskPermission messages in response to each received BSM, effectively eliminating the need for a busy wait for acknowledgment. </p>
+                <p class="resume-item-copy">Additionally, the timing of the handover (HDOV) message should be adjusted. Sending HDOV after a vehicle crosses, rather than before, will help prevent potential conflicts with other vehicles. This adjustment ensures smoother operation within the vehicular network by reducing unnecessary communication and computational overhead, thus enhancing overall system efficiency."</p>       
+              </div>
+              
+              <div class="image-with-title">
+                <p class="image-title">Figure 2: Four-Car Crossroad Scenario</p>
+                <img src="images/Scenario.png" alt="Clickable Image 2" class="clickable-image" id="enlargeImage" />
+                <p class="resume-item-copy">The scenario shown in Figure 2 depicts four vehicles navigating a course with a significantly elevated risk of collision.</p>
+              </div>
+              
+              <div class="image-with-title">
+                <p class="image-title">Figure 3: The Course with No Action Taken</p>
+                <img src="images/Collision_Detection.png" alt="Clickable Image 3" class="clickable-image" id="enlargeImage" />
+                <p class="resume-item-copy"> Figure 3 illustrates the outcomes when no action is taken.</p>
+              </div>
+  
+              <div class="image-with-title">
+                <p class="image-title">Figure 4: Message Passing Sequence Diagram</p>
+                <img src="images/Message_Passing.png" alt="Clickable Image 4" class="clickable-image" id="enlargeImage" />
+                <p class="resume-item-copy"> Figure 4 illustrates the process of message exchange between vehicles.</p>
+              </div>
+              
+              <div>
+                <p class="video-title">The Simulation</p>
+                <iframe width="700" height="350" src="https://www.youtube.com/embed/As4XUpnI8_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
             </div>
-            
-            <div class="image-with-title">
-              <p class="image-title">Figure 2: Four-Car Crossroad Scenario</p>
-              <img src="images/Scenario.png" alt="Clickable Image 2" class="clickable-image" id="enlargeImage" />
-              <p class="resume-item-copy">The scenario shown in Figure 2 depicts four vehicles navigating a course with a significantly elevated risk of collision.</p>
+          
+          {% endif %}
+
+          {% if project.project == "Cooperative Adaptive Cruise Control (CACC)" %}
+            <style>
+                /* Style the container for each image and its title */
+                .image-container1 .image-with-title {
+                  display: inline-block; /* Align items side by side */
+                  margin-right: 20px; /* Space between each image and its title */
+                }
+                
+                /* Style for the title */
+                .image-title1 {
+                  color: blue;
+                  text-align: center; /* Center the title above the image */
+                  margin-bottom: 5px; /* Space between the title and the image */
+                }
+              
+                /* Adjustments to the last image container to avoid extra margin */
+                .image-container1 .image-with-title:last-child {
+                  margin-right: 0;
+                }
+            </style>
+            <div class="image-container1">
+              <div class="image-with-title">
+                <p class="image-title1">Figure 5: First Rpi</p>
+                <img src="images/Rpi1.jpg" alt="Clickable Image 5" class="clickable-image" id="enlargeImage" style="width:300px;" />
+              </div>
+              <div class="image-with-title">
+                <p class="image-title1">Figure 6: Second Rpi</p>
+                <img src="images/Rpi2.jpg" alt="Clickable Image 6" class="clickable-image" id="enlargeImage"  style="width:300px;"/>
+              </div>
             </div>
-            
-            <div class="image-with-title">
-              <p class="image-title">Figure 3: The Course with No Action Taken</p>
-              <img src="images/Collision_Detection.png" alt="Clickable Image 3" class="clickable-image" id="enlargeImage" />
-              <p class="resume-item-copy"> Figure 3 illustrates the outcomes when no action is taken.</p>
-            </div>
-      
-            <div class="image-with-title">
-              <p class="image-title">Figure 4: Message Passing Sequence Diagram</p>
-              <img src="images/Message_Passing.png" alt="Clickable Image 4" class="clickable-image" id="enlargeImage" />
-              <p class="resume-item-copy"> Figure 4 illustrates the process of message exchange between vehicles.</p>
-            </div>
-            
-            <div>
-              <p class="video-title">The Simulation</p>
-              <iframe width="700" height="350" src="https://www.youtube.com/embed/As4XUpnI8_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-        </section>
-      </div>
+          {% endif %}
+
+          <script>
+              // Select all images with the class 'clickable-image'
+              const images = document.querySelectorAll('.clickable-image');
+          
+              // Add a click event listener to each image
+              images.forEach(function(image) {
+                  image.addEventListener('click', function() {
+                      this.classList.toggle('enlarged');
+                  });
+              });
+          </script>
+        </div>
+        {% endfor %}
+
+      </section>
+      <!-- end Projects -->
+      {% endif %}
+
+      {% if site.resume_section_skills %}
+      <!-- begin Skills -->
+      <section class="content-section">
+
+        <header class="section-header">
+          <h2>Skills</h2>
+        </header>
+        {% for skill in site.data.skills %}
+        <div class="resume-item">
+          <h4 class="resume-item-details">{{ skill.skill }}</h4>
+          <p class="resume-item-copy">{{ skill.description }}</p>
+        </div>
+        {% endfor %}
+
+      </section>
+      <!-- end Skills -->
+      {% endif %}
+
+      {% if site.resume_section_recognition %}
+      <!-- begin Recognition -->
+      <section class="content-section">
+
+        <header class="section-header">
+          <h2>Recognition</h2>
+        </header>
+
+        {% for recognition in site.data.recognitions %}
+        <div class="resume-item">
+          <h3 class="resume-item-title" itemprop="award">{{ recognition.award }}</h3>
+          <h4 class="resume-item-details">{{ recognition.organization }} &bull; {{ recognition.year }}</h4>
+          <p class="resume-item-copy">{{ recognition.summary }}</p>
+        </div>
+        {% endfor %}
+
+      </section>
+      <!-- end Recognition -->
+      {% endif %}
+
+      {% if site.resume_section_associations %}
+      <!-- begin Associations -->
+      <section class="content-section">
+
+        <header class="section-header">
+          <h2>Associations</h2>
+        </header>
+
+        {% for association in site.data.associations %}
+        <div class="resume-item" itemscope itemprop="memberOf" itemtype="http://schema.org/Organization">
+          <h3 class="resume-item-title" itemprop="name">{% if association.url %}<a href="{{ association.url }}">{{ association.organization }}</a>{% else %}{{ association.organization }}{% endif %}</h3>
+          <h4 class="resume-item-details" itemprop="description">{{ association.role }} &bull; {{ association.year }}</h4>
+          <p class="resume-item-copy">{{ association.summary }}</p>
+        </div>
+        {% endfor %}
+
+      </section>
+      <!-- end Associations -->
+      {% endif %}
+
+      {% if site.resume_section_interests %}
+      <!-- begin Interests -->
+      <section class="content-section">
+
+        <header class="section-header">
+          <h2>Outside Interests</h2>
+        </header>
+
+        <div class="resume-item">
+          <ul class="resume-item-list">
+            {% for interest in site.data.interests %}
+            <li>{{ interest.description }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+      </section>
+      <!-- end Interests -->
+      {% endif %}
+
+      {% if site.resume_section_links %}
+      <!-- begin Links -->
+      <section class="content-section">
+
+        <header class="section-header">
+          <h2>Additional Links</h2>
+        </header>
+
+        <div class="resume-item">
+          <ul class="resume-item-list">
+            {% for link in site.data.links %}
+            <li><a href={{ link.url }} itemprop="url">{{ link.description }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+      </section>
+      <!-- end Links -->
+      {% endif %}
+
+      {% if site.resume_print_social_links %}
+      <!-- begin Print Social Links -->
+      <section class="content-section print-only">
+
+        <header class="section-header">
+          <h2>Social Links</h2>
+        </header>
+
+        <div class="resume-item">
+        {% include print-social-links.html %}
+        </div>
+
+      </section>
+      <!-- end Print Social Links -->
+      {% endif %}
+
+      <footer class="page-footer">
+        <p class="footer-line">Made by <a href="http://twitter.com/jglovier">@jglovier</a>. Fork me on <a href="https://github.com/jglovier/resume-template">GitHub</a>.</p>
+        <p class="footer-line">If this is your live resume, you can modify or remove this part. ;-)</p>
+      </footer>
+
     </div>
+
   </body>
+
 </html>
