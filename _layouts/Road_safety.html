@@ -46,41 +46,49 @@
   </style>
 
   <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %}">
-    <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />
-      <h3 class="resume-item-title" itemprop="name">Road Safety</h3>
+    <div class="wrapper" itemscope itemtype="http://schema.org/Person"></div>
+      <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
+        <section class="content-section">
+          <header class="section-header">
+            <h2>Projects</h2>
+          </header>
+          <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />
+          <h3 class="resume-item-title" itemprop="name">Road Safety</h3>
+          
+          <div class="image-container">
+            <div class="image-with-title">
+              <p class="image-title">Figure 1: Improved VAIMA</p>
+              <img src="images/Improved_VAIMA.png" alt="Clickable Image 1" class="clickable-image" id="enlargeImage" />
+              <p class="resume-item-copy">As shown in Fig 1 I have removed the Collision Resolution (CR) message, which essentially duplicates the function of the AskPermission message. Specifically, when one vehicle requests permission from another, it implicitly indicates collision detection. This reduces message complixity.</p>
+              <p class="resume-item-copy">To further reduce message complexity, the vehicle's role (e.g., whether it is a road leader) can be incorporated into the Basic Safety Message (BSM), thereby decreasing computational complexity. Furthermore, eliminating the acknowledgment message could streamline communication. Instead of awaiting acknowledgments, we can maintain a list of vehicles in an array. This array would be used to systematically send AskPermission messages in response to each received BSM, effectively eliminating the need for a busy wait for acknowledgment. </p>
+              <p class="resume-item-copy">Additionally, the timing of the handover (HDOV) message should be adjusted. Sending HDOV after a vehicle crosses, rather than before, will help prevent potential conflicts with other vehicles. This adjustment ensures smoother operation within the vehicular network by reducing unnecessary communication and computational overhead, thus enhancing overall system efficiency."</p>       
+            </div>
+            
+            <div class="image-with-title">
+              <p class="image-title">Figure 2: Four-Car Crossroad Scenario</p>
+              <img src="images/Scenario.png" alt="Clickable Image 2" class="clickable-image" id="enlargeImage" />
+              <p class="resume-item-copy">The scenario shown in Figure 2 depicts four vehicles navigating a course with a significantly elevated risk of collision.</p>
+            </div>
+            
+            <div class="image-with-title">
+              <p class="image-title">Figure 3: The Course with No Action Taken</p>
+              <img src="images/Collision_Detection.png" alt="Clickable Image 3" class="clickable-image" id="enlargeImage" />
+              <p class="resume-item-copy"> Figure 3 illustrates the outcomes when no action is taken.</p>
+            </div>
       
-      <div class="image-container">
-        <div class="image-with-title">
-          <p class="image-title">Figure 1: Improved VAIMA</p>
-          <img src="images/Improved_VAIMA.png" alt="Clickable Image 1" class="clickable-image" id="enlargeImage" />
-          <p class="resume-item-copy">As shown in Fig 1 I have removed the Collision Resolution (CR) message, which essentially duplicates the function of the AskPermission message. Specifically, when one vehicle requests permission from another, it implicitly indicates collision detection. This reduces message complixity.</p>
-          <p class="resume-item-copy">To further reduce message complexity, the vehicle's role (e.g., whether it is a road leader) can be incorporated into the Basic Safety Message (BSM), thereby decreasing computational complexity. Furthermore, eliminating the acknowledgment message could streamline communication. Instead of awaiting acknowledgments, we can maintain a list of vehicles in an array. This array would be used to systematically send AskPermission messages in response to each received BSM, effectively eliminating the need for a busy wait for acknowledgment. </p>
-          <p class="resume-item-copy">Additionally, the timing of the handover (HDOV) message should be adjusted. Sending HDOV after a vehicle crosses, rather than before, will help prevent potential conflicts with other vehicles. This adjustment ensures smoother operation within the vehicular network by reducing unnecessary communication and computational overhead, thus enhancing overall system efficiency."</p>       
-        </div>
-        
-        <div class="image-with-title">
-          <p class="image-title">Figure 2: Four-Car Crossroad Scenario</p>
-          <img src="images/Scenario.png" alt="Clickable Image 2" class="clickable-image" id="enlargeImage" />
-          <p class="resume-item-copy">The scenario shown in Figure 2 depicts four vehicles navigating a course with a significantly elevated risk of collision.</p>
-        </div>
-        
-        <div class="image-with-title">
-          <p class="image-title">Figure 3: The Course with No Action Taken</p>
-          <img src="images/Collision_Detection.png" alt="Clickable Image 3" class="clickable-image" id="enlargeImage" />
-          <p class="resume-item-copy"> Figure 3 illustrates the outcomes when no action is taken.</p>
-        </div>
-  
-        <div class="image-with-title">
-          <p class="image-title">Figure 4: Message Passing Sequence Diagram</p>
-          <img src="images/Message_Passing.png" alt="Clickable Image 4" class="clickable-image" id="enlargeImage" />
-          <p class="resume-item-copy"> Figure 4 illustrates the process of message exchange between vehicles.</p>
-        </div>
-        
-        <div>
-          <p class="video-title">The Simulation</p>
-          <iframe width="700" height="350" src="https://www.youtube.com/embed/As4XUpnI8_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+            <div class="image-with-title">
+              <p class="image-title">Figure 4: Message Passing Sequence Diagram</p>
+              <img src="images/Message_Passing.png" alt="Clickable Image 4" class="clickable-image" id="enlargeImage" />
+              <p class="resume-item-copy"> Figure 4 illustrates the process of message exchange between vehicles.</p>
+            </div>
+            
+            <div>
+              <p class="video-title">The Simulation</p>
+              <iframe width="700" height="350" src="https://www.youtube.com/embed/As4XUpnI8_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </section>
       </div>
+    </div>
   </body>
 </html>
