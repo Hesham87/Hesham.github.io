@@ -114,49 +114,6 @@
           <h4 class="resume-item-details" itemprop="description">{{ project.role }}  &bull; {{ project.duration }}</h4>
           <p class="resume-item-copy">{{ project.description }}</p>
 
-          {% if project.project == "Cooperative Adaptive Cruise Control (CACC)" %}
-            <style>
-                /* Style the container for each image and its title */
-                .image-container1 .image-with-title {
-                  display: inline-block; /* Align items side by side */
-                  margin-right: 20px; /* Space between each image and its title */
-                }
-                
-                /* Style for the title */
-                .image-title1 {
-                  color: blue;
-                  text-align: center; /* Center the title above the image */
-                  margin-bottom: 5px; /* Space between the title and the image */
-                }
-              
-                /* Adjustments to the last image container to avoid extra margin */
-                .image-container1 .image-with-title:last-child {
-                  margin-right: 0;
-                }
-            </style>
-            <div class="image-container1">
-              <div class="image-with-title">
-                <p class="image-title1">Figure 5: First Rpi</p>
-                <img src="images/Rpi1.jpg" alt="Clickable Image 5" class="clickable-image" id="enlargeImage" style="width:300px;" />
-              </div>
-              <div class="image-with-title">
-                <p class="image-title1">Figure 6: Second Rpi</p>
-                <img src="images/Rpi2.jpg" alt="Clickable Image 6" class="clickable-image" id="enlargeImage"  style="width:300px;"/>
-              </div>
-            </div>
-          {% endif %}
-
-          <script>
-              // Select all images with the class 'clickable-image'
-              const images = document.querySelectorAll('.clickable-image');
-          
-              // Add a click event listener to each image
-              images.forEach(function(image) {
-                  image.addEventListener('click', function() {
-                      this.classList.toggle('enlarged');
-                  });
-              });
-          </script>
         </div>
         {% endfor %}
 
@@ -169,14 +126,11 @@
       <section class="content-section">
 
         <header class="section-header">
-          <h2>Skills</h2>
+          <h2>CV</h2>
         </header>
-        {% for skill in site.data.skills %}
-        <div class="resume-item">
-          <h4 class="resume-item-details">{{ skill.skill }}</h4>
-          <p class="resume-item-copy">{{ skill.description }}</p>
-        </div>
-        {% endfor %}
+        <object data="images/CV.pdf" type="application/pdf" width="600" height="400">
+          <p>It appears you don't have a PDF plugin for this browser. You can <a href="url_to_your_pdf.pdf">click here to download the PDF file.</a></p>
+      </object>
 
       </section>
       <!-- end Skills -->
