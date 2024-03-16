@@ -48,13 +48,19 @@
               </div>
             </div>
 
-            <p class="resume-item-copy">In our endeavor to acquire velocity, acceleration, and directional data, we initially employed an Inertial Measurement Unit (IMU). However, upon evaluation, we discerned that the accuracy of its accelerometer and angular velocity measurements did not meet the requirements of our application. Consequently, we adapted the use of the IMU to exclusively determine directional orientation, effectively functioning as a compass.</p>
+            <p class="resume-item-copy">In our endeavor to acquire velocity, acceleration, and directional data, we initially employed an Inertial Measurement Unit (IMU). However, upon evaluation, we discerned that the accuracy of its accelerometer and angular velocity measurements did not meet the requirements of our application.</p>
             <p class="resume-item-copy">To obtain more precise velocity data, we pivoted to utilizing the GPS capabilities of our Android smartphones. This approach was predicated on the superior accuracy of the smartphone GPS systems compared to the dedicated GPS module we had initially procured. The velocity data captured via the smartphones was then transmitted to the Raspberry Pi for further processing.</p>
             <p class="resume-item-copy">Accordingly, we also utilized our smartphones' GPS to obtain the vehicle's location and transmitted this data to the Raspberry Pi. There, we used the locations of both vehicles to calculate the distance between them. Based on all the information acquired, we then calculated the risk of collision and transmitted this risk assessment to each vehicle's smartphone.</p>
-            <p class="resume-item-copy">The transceiver was used to send BSM messages between both vehicles</p>
+            <p class="resume-item-copy">Lastly, we used the digital compass for the direction of the vehivle, and the transceiver was used to send BSM messages between both vehicles</p>
             <div>
-              <p class="video-title">The Result</p>
-              <iframe width="700" height="350" src="https://www.youtube.com/embed/As4XUpnI8_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p class="resume-item-copy">This video shows two cars in same lane</p>
+              <p class="video-title">Two cars same lane</p>
+              <iframe width="700" height="350" src="https://www.youtube.com/embed/broRL2WbzBA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div>
+              <p class="resume-item-copy">This video shows two cars facing opposite directions.</p>
+              <p class="video-title">Two cars same lane</p>
+              <iframe width="700" height="350" src="https://www.youtube.com/embed/zx1dKhXMJC8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <p class="resume-item-copy">It should be noted that our project encountered two primary limitations. Firstly, we were unable to ascertain the vehicle's lane positioning, a task that can be achieved through several methods including the use of camera systems, GPS with high-precision maps, radar and lidar technologies, and sensor fusion incorporating a combination of these solutions. Secondly, the necessity for a more robust transceiver has been identified, attributed to the significant rate of packet transmission failures experienced. </p>
             <p class="resume-item-copy">In conclusion, Our project acheived its purpuse by using </p>
