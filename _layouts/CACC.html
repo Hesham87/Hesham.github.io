@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %}">
+
+    <div class="wrapper" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="telephone" content="{{ site.resume_contact_telephone }}"/>
+      <meta itemprop="address" content="{{ site.resume_contact_address }}"/>
+
+      <header class="page-header">
+
+        <!-- You can turn off the avatar in _config.yml by setting to false -->
+        {% if site.resume_avatar == 'true' %}
+        <img src="images/avatar.jpg" alt="my photo" class="avatar no-print" itemprop="image">
+        {% endif %}
+
+
+        <!-- To display contact info here, change `display_header_contact_info` value in _config.yml to true -->
+
+        <div class="title-bar no-print">
+          <h1 class="header-name" itemprop="name">Road Safety</h1>
+          <!-- This is the markup for the icon links; moved out to an include because it's very verbose, and you shouldn't ever need to edit the markup (unless you want to re-order the icons); if you want to customize which links appear, define them in the _config.yml file -->
+          {% include icon-links.html %}
+        </div>
+
+      </header>
+
+      <!-- begin Projects -->
+      <section class="content-section">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+
+        <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
+          <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />         
+            <div class="image-container">
+              <p class="resume-item-copy">For this project, we used two embedded systems, each consisting of a GPS, an IMU, and a transceiver.</p>
+              <div class="image-with-title">
+                <p class="image-title">Figure 1: First Embedded System</p>
+                <img src="images/Rpi1.jpg" alt="Clickable Image 5" class="clickable-image" id="enlargeImage" />      
+              </div>
+              
+              <div class="image-with-title">
+                <p class="image-title">Figure 2: Second Embedded System</p>
+                <img src="images/Rpi2.jpg" alt="Clickable Image 6" class="clickable-image" id="enlargeImage" style="width: 700px;" />
+              </div>
+            </div>
+
+            <p class="resume-item-copy">In our endeavor to acquire velocity, acceleration, and directional data, we initially employed an Inertial Measurement Unit (IMU). However, upon evaluation, we discerned that the accuracy of its accelerometer and angular velocity measurements did not meet the requirements of our application. Consequently, we adapted the use of the IMU to exclusively determine directional orientation, effectively functioning as a compass.</p>
+            <p class="resume-item-copy">To obtain more precise velocity data, we pivoted to utilizing the GPS capabilities of our Android smartphones. This approach was predicated on the superior accuracy of the smartphone GPS systems compared to the dedicated GPS module we had initially procured. The velocity data captured via the smartphones was then transmitted to the Raspberry Pi for further processing.</p>
+            <p class="resume-item-copy">Accordingly, we also utilized our smartphones' GPS to obtain the vehicle's location and transmitted this data to the Raspberry Pi. There, we used the locations of both vehicles to calculate the distance between them. Based on all the information acquired, we then calculated the risk of collision and transmitted this risk assessment to each vehicle's smartphone.</p>
+            <p class="resume-item-copy">The transceiver was used to send BSM messages between boh vehicles</p>
+            <div>
+              <p class="video-title">The Result</p>
+              <iframe width="700" height="350" src="https://www.youtube.com/embed/As4XUpnI8_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="resume-item-copy">It should be noted that our project encountered two primary limitations. Firstly, we were unable to ascertain the vehicle's lane positioning, a task that can be achieved through several methods including the use of camera systems, GPS with high-precision maps, radar and lidar technologies, and sensor fusion incorporating a combination of these solutions. Secondly, the necessity for a more robust transceiver has been identified, attributed to the significant rate of packet transmission failures experienced. </p>
+            <p class="resume-item-copy">In conclusion, Our project acheived its purpuse by using </p>
+          <script>
+              // Select all images with the class 'clickable-image'
+              const images = document.querySelectorAll('.clickable-image');
+          
+              // Add a click event listener to each image
+              images.forEach(function(image) {
+                  image.addEventListener('click', function() {
+                      this.classList.toggle('enlarged');
+                  });
+              });
+          </script>
+        </div>
+
+      </section>
+
+      <footer class="page-footer">
+        <p class="footer-line">Made by <a href="http://twitter.com/jglovier">@jglovier</a>. Fork me on <a href="https://github.com/jglovier/resume-template">GitHub</a>.</p>
+        <p class="footer-line">If this is your live resume, you can modify or remove this part. ;-)</p>
+      </footer>
+
+    </div>
+
+  </body>
+
+</html>
