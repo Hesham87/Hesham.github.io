@@ -39,19 +39,19 @@
               <p class="resume-item-copy">For this project, we used two embedded systems, each consisting of a GPS, an IMU, and a transceiver.</p>
               <div class="image-with-title">
                 <p class="image-title">Figure 1: First Embedded System</p>
-                <img src="images/Rpi1.jpg" alt="Clickable Image 5" class="clickable-image" id="enlargeImage" />      
+                <img src="images/Rpi1.jpg" alt="Clickable Image 5" class="clickable-image" id="enlargeImage" style="width: 300px;"/>      
               </div>
               
               <div class="image-with-title">
                 <p class="image-title">Figure 2: Second Embedded System</p>
-                <img src="images/Rpi2.jpg" alt="Clickable Image 6" class="clickable-image" id="enlargeImage" style="width: 700px;" />
+                <img src="images/Rpi2.jpg" alt="Clickable Image 6" class="clickable-image" id="enlargeImage" style="width: 300px;" />
               </div>
             </div>
 
             <p class="resume-item-copy">In our endeavor to acquire velocity, acceleration, and directional data, we initially employed an Inertial Measurement Unit (IMU). However, upon evaluation, we discerned that the accuracy of its accelerometer and angular velocity measurements did not meet the requirements of our application. Consequently, we adapted the use of the IMU to exclusively determine directional orientation, effectively functioning as a compass.</p>
             <p class="resume-item-copy">To obtain more precise velocity data, we pivoted to utilizing the GPS capabilities of our Android smartphones. This approach was predicated on the superior accuracy of the smartphone GPS systems compared to the dedicated GPS module we had initially procured. The velocity data captured via the smartphones was then transmitted to the Raspberry Pi for further processing.</p>
             <p class="resume-item-copy">Accordingly, we also utilized our smartphones' GPS to obtain the vehicle's location and transmitted this data to the Raspberry Pi. There, we used the locations of both vehicles to calculate the distance between them. Based on all the information acquired, we then calculated the risk of collision and transmitted this risk assessment to each vehicle's smartphone.</p>
-            <p class="resume-item-copy">The transceiver was used to send BSM messages between boh vehicles</p>
+            <p class="resume-item-copy">The transceiver was used to send BSM messages between both vehicles</p>
             <div>
               <p class="video-title">The Result</p>
               <iframe width="700" height="350" src="https://www.youtube.com/embed/As4XUpnI8_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
